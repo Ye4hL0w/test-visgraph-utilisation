@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>vis-graph exporté</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; background-color: #f8f9fa; }
+        .container { max-width: 1000px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+        header { text-align: center; margin-bottom: 20px; }
+        vis-graph { 
+            border: 1px solid #dee2e6; 
+            display: block; 
+            margin-top: 20px; 
+            margin-bottom: 20px;
+            background-color: #fff;
+        }
+        .controls { padding: 15px; border: 1px solid #e9ecef; background-color: #f8f9fa; border-radius: 5px; margin-bottom:20px;}
+        .encoding-controls { padding: 15px; border: 1px solid #e9ecef; background-color: #fff3cd; border-radius: 5px; margin-bottom:20px;}
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #495057; }
+        input[type="text"], textarea { 
+            width: calc(100% - 20px); 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ced4da; 
+            border-radius: 4px; 
+            font-size: 14px;
+        }
+        textarea { min-height: 150px; }
+        #encodingTextarea { min-height: 200px; font-family: 'Courier New', monospace; font-size: 12px; }
+        button { 
+            padding: 10px 20px; 
+            font-size: 15px;
+            background-color: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            margin-right: 10px;
+        }
+        button:hover { background-color: #0056b3; }
+        button#effacerGraphe { background-color: #dc3545; }
+        button#effacerGraphe:hover { background-color: #c82333; }
+        button#chargerExemple { background-color: #28a745; }
+        button#chargerExemple:hover { background-color: #218838; }
+        button#appliquerEncoding { background-color: #ffc107; color: #212529; }
+        button#appliquerEncoding:hover { background-color: #e0a800; }
+        button#resetEncoding { background-color: #6c757d; }
+        button#resetEncoding:hover { background-color: #5a6268; }
+        .status-message { 
+            padding: 10px; 
+            margin-top: 10px; 
+            border-radius: 4px; 
+            font-size: 14px;
+        }
+        .status-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .status-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .status-info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+
+    <!-- Chargement du bundle UMD de votre composant -->
+    <script src="./node_modules/@jmoncada/vis-graph/dist/vis-graph.umd.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Test Interactif de <code>@jmoncada/vis-graph</code></h1>
+            <p>Entrez un endpoint SPARQL et une requête, puis cliquez sur "Charger".</p>
+        </header>
+
+        <div class="controls">
+            <div>
+                <label for="sparqlEndpoint">Endpoint SPARQL:</label>
+                <input type="text" id="sparqlEndpoint">
+            </div>
+            <div>
+                <label for="proxyUrl">URL du Proxy (optionnel) :</label>
+                <input type="text" id="proxyUrl">
+            </div>
+            <div>
+                <label for="sparqlQuery">Requête SPARQL (CONSTRUCT ou SELECT) :</label>
+                <textarea id="sparqlQuery" rows="15"></textarea>
+            </div>
+            <button id="chargerDonnees">Charger les Données</button>
+            <button id="effacerGraphe">Effacer le Graphe</button>
+            <button id="chargerExemple">Charger l'exemple</button>
+        </div>
+
+        <div class="encoding-controls">
+            <h3>🎨 Configuration de l'Encoding Visuel</h3>
+            <p>Modifiez la configuration JSON ci-dessous pour personnaliser l'apparence du graphe :</p>
+            <div>
+                <label for="encodingTextarea">Configuration Encoding (JSON) :</label>
+                <textarea id="encodingTextarea"></textarea>
+            </div>
+            <button id="appliquerEncoding">Appliquer l'Encoding</button>
+            <button id="resetEncoding">Réinitialiser</button>
+            <div id="encodingStatus" class="status-message" style="display: none;"></div>
+        </div>
+
+        <vis-graph id="monGrapheInteractif" width="950" height="650"></vis-graph>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const graphElement = document.getElementById('monGrapheInteractif');
+        const endpointInput = document.getElementById('sparqlEndpoint');
+        const proxyInput = document.getElementById('proxyUrl');
+        const queryInput = document.getElementById('sparqlQuery');
+        const loadButton = document.getElementById('chargerDonnees');
+        const clearButton = document.getElementById('effacerGraphe');
+        const loadExampleButton = document.getElementById('chargerExemple');
+        
+        // Contrôles d'encoding
+        const encodingTextarea = document.getElementById('encodingTextarea');
+        const applyEncodingButton = document.getElementById('appliquerEncoding');
+        const resetEncodingButton = document.getElementById('resetEncoding');
+        const encodingStatus = document.getElementById('encodingStatus');
+
+        // Valeurs par défaut
+        endpointInput.value = 'https://www.bgee.org/sparql/';
+        proxyInput.value = 'http://localhost:3001/sparql-proxy';
+        queryInput.value = `
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX genex: <http://purl.org/genex#>
+PREFIX lscr: <http://purl.org/lscr#>
+PREFIX orth: <http://purl.org/net/orth#>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX up: <http://purl.uniprot.org/core/>
+
+SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
+    {
+        SELECT ?ensemblGene ?anatomicalEntity {
+            ?geneB a orth:Gene ;
+                genex:isExpressedIn ?anat ;
+                rdfs:label ?geneLabel ;
+                lscr:xrefEnsemblGene ?ensemblGene ;
+                orth:organism/obo:RO_0002162 ?taxon2 .
+            ?taxon2 up:commonName 'zebrafish' .
+            FILTER (UCASE(?geneLabel) = UCASE('ins'))
+            ?anat rdfs:label ?anatomicalEntity .
+        }
+    }
+    SERVICE <https://sparql.uniprot.org/sparql> {
+        ?uniprot rdfs:seeAlso/up:transcribedFrom ?ensemblGene ;
+            a up:Protein ;
+            up:classifiedWith ?goClass .
+        ?goClass rdfs:label ?goLabel .
+    }
+} LIMIT 20
+        `.trim();
+
+        if (typeof VisGraph === 'undefined' || !customElements.get('vis-graph')) {
+            console.error("Le composant <vis-graph> n'a pas été enregistré. Vérifiez le chargement du script UMD.");
+            return;
+        }
+        
+        if (!graphElement) {
+             console.error("L'élément <vis-graph id='monGrapheInteractif'> est introuvable.");
+             return;
+        }
+
+        // Initialiser l'encoding par défaut dans le textarea
+        function initializeEncodingTextarea() {
+            try {
+                const defaultEncoding = graphElement.getDefaultEncoding();
+                encodingTextarea.value = JSON.stringify(defaultEncoding, null, 2);
+            } catch (e) {
+                console.error("Erreur lors de l'initialisation de l'encoding:", e);
+                encodingTextarea.value = '{\n  "nodes": {\n    "color": {\n      "value": "#69b3a2"\n    }\n  }\n}';
+            }
+        }
+
+        // Fonction pour afficher un message de statut
+        function showEncodingStatus(message, type = 'info') {
+            encodingStatus.textContent = message;
+            encodingStatus.className = `status-message status-${type}`;
+            encodingStatus.style.display = 'block';
+            
+            // Masquer automatiquement après 3 secondes
+            setTimeout(() => {
+                encodingStatus.style.display = 'none';
+            }, 3000);
+        }
+
+        // Initialiser le textarea d'encoding
+        setTimeout(initializeEncodingTextarea, 100);
+
+        // Gestion de l'encoding
+        applyEncodingButton.addEventListener('click', () => {
+            try {
+                const encodingConfig = JSON.parse(encodingTextarea.value);
+                graphElement.encoding = encodingConfig;
+                showEncodingStatus('✅ Nouvel encoding appliqué avec succès !', 'success');
+                console.log("🎨 Encoding personnalisé appliqué:", encodingConfig);
+            } catch (error) {
+                showEncodingStatus(`❌ Erreur dans le JSON de l'encoding: ${error.message}`, 'error');
+                console.error("Erreur lors de l'analyse du JSON d'encoding:", error);
+            }
+        });
+
+        resetEncodingButton.addEventListener('click', () => {
+            try {
+                // Remettre à null pour forcer la régénération de l'encoding adaptatif
+                graphElement.encoding = null;
+                
+                // Régénérer l'encoding adaptatif en relançant la transformation
+                if (graphElement.sparqlData || graphElement.sparqlResult) {
+                    graphElement.launch().then(() => {
+                        // Récupérer l'encoding adaptatif généré
+                        const adaptiveMapping = graphElement.getEncoding();
+                        encodingTextarea.value = JSON.stringify(adaptiveMapping, null, 2);
+                        showEncodingStatus('🎨 Encoding adaptatif restauré !', 'success');
+                        console.log("🎨 Encoding adaptatif restauré:", adaptiveMapping);
+                    }).catch(error => {
+                        showEncodingStatus(`❌ Erreur lors de la restauration adaptative: ${error.message}`, 'error');
+                        console.error("Erreur lors de la restauration de l'encoding adaptatif:", error);
+                    });
+                } else {
+                    // Si pas de données, utiliser l'encoding par défaut
+                    const defaultMapping = graphElement.getDefaultEncoding();
+                    graphElement.encoding = defaultMapping;
+                    encodingTextarea.value = JSON.stringify(defaultMapping, null, 2);
+                    showEncodingStatus('🔄 Encoding par défaut restauré (aucune donnée) !', 'info');
+                    console.log("🎨 Encoding par défaut restauré");
+                }
+            } catch (error) {
+                showEncodingStatus(`❌ Erreur lors de la réinitialisation: ${error.message}`, 'error');
+                console.error("Erreur lors de la réinitialisation de l'encoding:", error);
+            }
+        });
+
+        loadButton.addEventListener('click', async () => {
+            const endpoint = endpointInput.value;
+            const query = queryInput.value;
+            const proxyUrl = proxyInput.value; // Récupérer l'URL du proxy
+
+            if (!endpoint || !query) {
+                console.warn("Veuillez fournir un endpoint et une requête SPARQL.");
+                return;
+            }
+            
+            if (typeof graphElement.launch !== 'function') {
+                console.error("La méthode 'launch' n'est pas disponible.", graphElement);
+                return;
+            }
+
+            console.log(`Chargement depuis : ${endpoint} via proxy: ${proxyUrl || 'non utilisé'}`);
+            try {
+                // Remettre l'encoding à null pour forcer la régénération adaptative
+                graphElement.encoding = null;
+                
+                // Configurer le composant avec les nouvelles propriétés
+                graphElement.sparqlEndpoint = endpoint;
+                graphElement.sparqlQuery = query;
+                graphElement.proxy = proxyUrl || null; // Utilise l'alias 'proxy'
+                
+                // Lancer la visualisation avec la nouvelle méthode unifiée
+                const result = await graphElement.launch();
+                
+                console.log("Résultat du chargement:", result);
+                if (result && result.status === 'success') {
+                    console.log(`Données chargées: ${result.data.nodes.length} nœuds, ${result.data.links.length} liens.`);
+                    
+                    // Récupérer et afficher l'encoding adaptatif généré
+                    try {
+                        const adaptiveEncoding = graphElement.getEncoding();
+                        encodingTextarea.value = JSON.stringify(adaptiveEncoding, null, 2);
+                        showEncodingStatus('🎨 Encoding adaptatif généré automatiquement !', 'success');
+                        console.log("🎨 Encoding adaptatif appliqué:", adaptiveEncoding);
+                    } catch (encodingError) {
+                        console.warn("Impossible de récupérer l'encoding adaptatif:", encodingError);
+                    }
+                } else if (result) {
+                    console.warn(`Problème lors du chargement : ${result.message}`);
+                } else {
+                     console.warn("Une réponse inattendue a été reçue.");
+                }
+            } catch (e) {
+                console.error("Erreur JavaScript lors du chargement:", e);
+            }
+        });
+
+        clearButton.addEventListener('click', async () => {
+            // Réinitialiser les données et relancer le rendu
+            graphElement.nodes = [];
+            graphElement.links = [];
+            
+            try {
+                await graphElement.launch();
+                console.log("Graphe effacé.");
+            } catch (e) {
+                // Si launch() échoue avec des données vides, on fait un rendu direct
+                if (typeof graphElement.render === 'function') {
+                    graphElement.render();
+                    console.log("Graphe effacé (rendu direct).");
+                } else {
+                    console.error("Impossible d'effacer le graphe.", e);
+                }
+            }
+        });
+
+        loadExampleButton.addEventListener('click', async () => {
+            try {
+                const response = await fetch('./example-data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const jsonData = await response.json();
+                
+                if (typeof graphElement.launch === 'function') {
+                    // Remettre l'encoding à null pour forcer la régénération adaptative
+                    graphElement.encoding = null;
+                    
+                    // Configurer avec les données JSON et lancer
+                    graphElement.sparqlResult = jsonData;
+                    const result = await graphElement.launch();
+                    
+                    console.log("Résultat du chargement de l'exemple:", result);
+                     if (result && result.status === 'success') {
+                        console.log(`Données de l'exemple chargées: ${result.data.nodes.length} nœuds, ${result.data.links.length} liens.`);
+                        
+                        // Récupérer et afficher l'encoding adaptatif généré
+                        try {
+                            const adaptiveEncoding = graphElement.getEncoding();
+                            encodingTextarea.value = JSON.stringify(adaptiveEncoding, null, 2);
+                            showEncodingStatus('🎨 Encoding adaptatif généré pour l\'exemple !', 'success');
+                            console.log("🎨 Encoding adaptatif appliqué pour l'exemple:", adaptiveEncoding);
+                        } catch (encodingError) {
+                            console.warn("Impossible de récupérer l'encoding adaptatif pour l'exemple:", encodingError);
+                        }
+                    } else if (result) {
+                        console.warn(`Problème lors du chargement de l'exemple : ${result.message}`);
+                    } else {
+                        console.warn("Une réponse inattendue a été reçue pour l'exemple.");
+                    }
+                } else {
+                    console.error("La méthode 'launch' n'est pas disponible.", graphElement);
+                }
+            } catch (e) {
+                console.error("Erreur lors du chargement du fichier d'exemple:", e);
+            }
+        });
+    });
+</script>
+</body>
+</html>

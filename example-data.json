@@ -1,0 +1,458 @@
+{
+  "head": { 
+  
+  "vars": [
+  "s", "p", "o", "label", "date", "usage"]
+  },
+  "results": { "bindings": [
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/0x22almostEvil/ru-riddles-377"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2023-05-07T10:35:38+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/0x22almostEvil/ru-riddles-377/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/0x7o/klara-voice"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-03-10T09:32:38+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/0x7o/klara-voice/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/0x7o/klara-voice"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "audio"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-03-10T09:32:38+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/0x7o/klara-voice/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/12ml/e-CARE"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "multiple-choice"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "multiple-choice"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2022-12-21T11:38:01+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/12ml/e-CARE/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/12ml/e-CARE"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2022-12-21T11:38:01+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/12ml/e-CARE/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/KTO-mix-14k-vietnamese-groq"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-09T07:16:46+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/KTO-mix-14k-vietnamese-groq/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/KTO-mix-14k-vietnamese-groq"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-09T07:16:46+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/KTO-mix-14k-vietnamese-groq/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/KTO-mix-14k-vietnamese-groq"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-09T07:16:46+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/KTO-mix-14k-vietnamese-groq/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/Vietnamese-OpenO1-SFT"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-12-26T02:16:12+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/Vietnamese-OpenO1-SFT/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/Vietnamese-OpenO1-SFT"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-12-26T02:16:12+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/Vietnamese-OpenO1-SFT/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1TuanPham/Vietnamese-OpenO1-SFT"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-12-26T02:16:12+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1TuanPham/Vietnamese-OpenO1-SFT/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1aurent/ADE20K"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-segmentation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-segmentation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-05-19T16:36:55+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1aurent/ADE20K/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1aurent/ADE20K"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-segmentation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-segmentation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-05-19T16:36:55+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1aurent/ADE20K/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1aurent/SUN397"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-05-20T13:15:24+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1aurent/SUN397/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1rsh/tts-rj-hi-karya"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-02-07T18:18:36+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1rsh/tts-rj-hi-karya/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1rsh/tts-rj-hi-karya"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "automatic-speech-recognition"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "automatic-speech-recognition"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-02-07T18:18:36+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1rsh/tts-rj-hi-karya/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1rsh/tts-rj-hi-karya"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "audio"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-speech"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-02-07T18:18:36+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1rsh/tts-rj-hi-karya/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/1rsh/tts-rj-hi-karya"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "automatic-speech-recognition"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "audio"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "automatic-speech-recognition"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-02-07T18:18:36+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/1rsh/tts-rj-hi-karya/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/27Group/Feriji"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-04-07T10:20:49+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/27Group/Feriji/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/27Group/Feriji"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "fill-mask"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "fill-mask"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-04-07T10:20:49+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/27Group/Feriji/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/27Group/Feriji"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "token-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "token-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-04-07T10:20:49+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/27Group/Feriji/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/27Group/Feriji"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "translation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "translation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-04-07T10:20:49+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/27Group/Feriji/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/27Group/Feriji"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "zero-shot-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "zero-shot-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-04-07T10:20:49+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/27Group/Feriji/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/3D-PC/3D-PC"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-10-02T01:49:53+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/3D-PC/3D-PC/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/3D-PC/3D-PC"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-10-02T01:49:53+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/3D-PC/3D-PC/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/3D-PC/3D-PC"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "3d"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-10-02T01:49:53+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/3D-PC/3D-PC/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/3dlg-hcvc/omages_ABO"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-3d"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-3d"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-10T00:45:37+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/3dlg-hcvc/omages_ABO/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/40umov/dostoevsky_3.5k"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-12-01T11:02:03+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/40umov/dostoevsky_3.5k/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/4n3mone/mmmlu_kor"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-24T00:15:46+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/4n3mone/mmmlu_kor/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-LAION-Gemini-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-26T07:29:52+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-LAION-Gemini-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-LAION-Gemini-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-09-26T07:29:52+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-LAION-Gemini-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text2text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Receipt-VQA"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-07-30T06:31:57+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Receipt-VQA/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Wiki-Handwriting"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-06T14:34:47+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Wiki-Handwriting/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Wiki-Handwriting"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-06T14:34:47+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Wiki-Handwriting/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Wiki-Handwriting"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "visual-question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-06T14:34:47+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Wiki-Handwriting/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/5CD-AI/Viet-Wiki-Handwriting"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-to-text"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-06T14:34:47+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/5CD-AI/Viet-Wiki-Handwriting/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/64bits/lima_vicuna_format"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2023-06-09T02:46:06+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/64bits/lima_vicuna_format/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/6DammK9/danbooru2024-latents-sdxl-1ktar"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-01-18T03:50:54+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/6DammK9/danbooru2024-latents-sdxl-1ktar/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/6DammK9/danbooru2024-latents-sdxl-1ktar"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-image"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-to-image"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-01-18T03:50:54+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/6DammK9/danbooru2024-latents-sdxl-1ktar/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/6DammK9/danbooru2024-latents-sdxl-1ktar"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "zero-shot-image-classification"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "zero-shot-image-classification"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2025-01-18T03:50:54+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/6DammK9/danbooru2024-latents-sdxl-1ktar/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/AAAIBenchmark/Multi-Opthalingua"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-14T23:28:25+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/AAAIBenchmark/Multi-Opthalingua/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/AAAIBenchmark/Multi-Opthalingua"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "tabular"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "question-answering"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-08-14T23:28:25+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/AAAIBenchmark/Multi-Opthalingua/usage/"}
+  }
+  ,
+  {
+  "s": { "type": "uri", "value": "http://example.org/dataset/AGBonnet/augmented-clinical-notes"},
+  "p": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "o": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text"},
+  "label": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#string", "value": "text-generation"},
+  "date": { "type": "typed-literal", "datatype": "http://www.w3.org/2001/XMLSchema#dateTime", "value": "2024-01-15T16:45:19+00:00"},
+  "usage": { "type": "uri", "value": "http://example.org/AGBonnet/augmented-clinical-notes/usage/"}
+  }
+  ] }
+  }
