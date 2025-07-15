@@ -118,6 +118,9 @@
         const resetEncodingButton = document.getElementById('resetEncoding');
         const encodingStatus = document.getElementById('encodingStatus');
 
+        // Variable pour stocker l'encoding de base
+        let baseEncoding = null;
+
         // Valeurs par défaut
         endpointInput.value = 'https://www.bgee.org/sparql/';
         proxyInput.value = 'http://localhost:3001/sparql-proxy';
@@ -184,8 +187,62 @@ SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
             }, 3000);
         }
 
+        // Fonction pour sauvegarder l'encoding de base
+        function saveBaseEncoding() {
+            baseEncoding = JSON.parse(JSON.stringify(graphElement.getEncoding())); // Copie profonde
+            console.log('[vis-graph] 📋 Encoding de base sauvegardé:', baseEncoding);
+        }
+
         // Initialiser le textarea d'encoding
         setTimeout(initializeEncodingTextarea, 100);
+
+        // === ÉCOUTEUR PRINCIPAL POUR LES MISES À JOUR AUTOMATIQUES D'ENCODING ===
+        // Écouteur pour la mise à jour automatique de l'encoding après calcul des domaines
+        graphElement.addEventListener('domainsCalculated', function(event) {
+            console.log('[vis-graph] 🎯 Domaines recalculés automatiquement - Mise à jour de l\'encoding dans la textarea');
+            
+            // Mettre à jour la textarea avec l'encoding réel généré automatiquement
+            if (encodingTextarea && event.detail && event.detail.encoding) {
+                encodingTextarea.value = JSON.stringify(event.detail.encoding, null, 2);
+                
+                // Notification visuelle que la textarea a été mise à jour
+                encodingTextarea.style.borderColor = '#28a745';
+                encodingTextarea.style.borderWidth = '2px';
+                setTimeout(() => {
+                    encodingTextarea.style.borderColor = '';
+                    encodingTextarea.style.borderWidth = '';
+                }, 2000);
+                
+                // Afficher un message de statut
+                showEncodingStatus('🎯 Encoding mis à jour automatiquement après calcul des domaines !', 'success');
+                
+                // Sauvegarder cet encoding comme encoding de base
+                saveBaseEncoding();
+                
+                console.log('[vis-graph] 🎨 Encoding automatiquement mis à jour:', event.detail.encoding);
+            }
+        });
+
+        // Écouteur pour détecter les changements d'encoding en général
+        graphElement.addEventListener('encodingChanged', function(event) {
+            console.log('[vis-graph] 🔄 Encoding changé - Mise à jour de la textarea');
+            
+            if (encodingTextarea) {
+                const currentEncoding = graphElement.getEncoding();
+                encodingTextarea.value = JSON.stringify(currentEncoding, null, 2);
+                
+                // Notification visuelle avec une couleur différente
+                encodingTextarea.style.borderColor = '#17a2b8';
+                encodingTextarea.style.borderWidth = '2px';
+                setTimeout(() => {
+                    encodingTextarea.style.borderColor = '';
+                    encodingTextarea.style.borderWidth = '';
+                }, 1500);
+                
+                showEncodingStatus('🔄 Encoding détecté et mis à jour !', 'info');
+                console.log('[vis-graph] 🎨 Encoding changé:', currentEncoding);
+            }
+        });
 
         // Gestion de l'encoding
         applyEncodingButton.addEventListener('click', () => {
@@ -204,6 +261,7 @@ SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
             try {
                 // Remettre à null pour forcer la régénération de l'encoding adaptatif
                 graphElement.encoding = null;
+                baseEncoding = null;
                 
                 // Régénérer l'encoding adaptatif en relançant la transformation
                 if (graphElement.sparqlData || graphElement.sparqlResult) {
@@ -234,7 +292,7 @@ SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
         loadButton.addEventListener('click', async () => {
             const endpoint = endpointInput.value;
             const query = queryInput.value;
-            const proxyUrl = proxyInput.value; // Récupérer l'URL du proxy
+            const proxyUrl = proxyInput.value;
 
             if (!endpoint || !query) {
                 console.warn("Veuillez fournir un endpoint et une requête SPARQL.");
@@ -246,15 +304,17 @@ SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
                 return;
             }
 
-            console.log(`Chargement depuis : ${endpoint} via proxy: ${proxyUrl || 'non utilisé'}`);
+            console.log(`🚀 Chargement depuis : ${endpoint} via proxy: ${proxyUrl || 'non utilisé'}`);
             try {
                 // Remettre l'encoding à null pour forcer la régénération adaptative
+                console.log('[vis-graph] 🔄 Nouveau chargement - Reset de l\'encoding');
                 graphElement.encoding = null;
+                baseEncoding = null;
                 
                 // Configurer le composant avec les nouvelles propriétés
                 graphElement.sparqlEndpoint = endpoint;
                 graphElement.sparqlQuery = query;
-                graphElement.proxy = proxyUrl || null; // Utilise l'alias 'proxy'
+                graphElement.proxy = proxyUrl || null;
                 
                 // Lancer la visualisation avec la nouvelle méthode unifiée
                 const result = await graphElement.launch();
@@ -263,12 +323,16 @@ SELECT DISTINCT ?anatomicalEntity ?goClass ?goLabel {
                 if (result && result.status === 'success') {
                     console.log(`Données chargées: ${result.data.nodes.length} nœuds, ${result.data.links.length} liens.`);
                     
-                    // Récupérer et afficher l'encoding adaptatif généré
+                    // L'encoding sera automatiquement mis à jour via l'écouteur 'domainsCalculated'
+                    // Mais on peut aussi le faire manuellement si nécessaire
                     try {
                         const adaptiveEncoding = graphElement.getEncoding();
-                        encodingTextarea.value = JSON.stringify(adaptiveEncoding, null, 2);
-                        showEncodingStatus('🎨 Encoding adaptatif généré automatiquement !', 'success');
-                        console.log("🎨 Encoding adaptatif appliqué:", adaptiveEncoding);
+                        if (adaptiveEncoding) {
+                            encodingTextarea.value = JSON.stringify(adaptiveEncoding, null, 2);
+                            showEncodingStatus('🎨 Encoding adaptatif généré automatiquement !', 'success');
+                            console.log("🎨 Encoding adaptatif appliqué:", adaptiveEncoding);
+                            saveBaseEncoding();
+                        }
                     } catch (encodingError) {
                         console.warn("Impossible de récupérer l'encoding adaptatif:", encodingError);
                     }
